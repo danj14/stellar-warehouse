@@ -38,8 +38,28 @@
 * Exported MBIN file
 * Converted/unpacked EXML file
 * Game files (.EXML) required for dimensional data model
-*  
+* .EXML -> JSON conversion spec/map
+* Expected file list and when/if those files were last extracted for transformation (point just above this one)
 #### Outputs:
+* Initially transformed JSON for later work
+* Expected file alias list
+* Status of validations, transformations, KPIs of job
+### JSON Extract to Staging Tables
+#### Inputs:
+* .json files from game file extraction output
+* JSON Landing -> Dimensional Staging spec/map
+  * Need to research best format for storing output of transformed data for "pragmatic loading" to final warehouse
+#### Outputs:
+* Transformed data in dimensional schema with updated metadata (tables)
+  * Natural to SK map
+  * Can we avoid using DB for all steps of ETL? Volume of game file data is so small, we might be able to save on cost
+    * That works because we need to be able to run fact tables at a different frequency than dim tables
+* Status of validations, transformations, KPIs of job
+### Staged data extract to Database (Postgresql?)
+#### Inputs:
+* 
+#### Outputs:
+* 
 # Crafting/Refining/Etc. Inputs and Outputs
 ## Inputs:
 * Selected ingredients
