@@ -16,6 +16,7 @@ class OriginDirectory:
         return f'{self.file_home}{self.directory_path}{self.file_list[file_index]}'
 
 
+# TODO: Replace w/config [added to config]
 reality_tables = OriginDirectory(directory_path='/METADATA/REALITY/TABLES/',
                                  file_list=[
                                      'NMS_REALITY_GCPRODUCTTABLE.EXML',
@@ -23,6 +24,7 @@ reality_tables = OriginDirectory(directory_path='/METADATA/REALITY/TABLES/',
                                      'TRADINGCLASSDATATABLE.EXML',
                                      'NMS_REALITY_GCRECIPETABLE.EXML'
                                             ])
+# TODO: Replace w/config [added to config]
 farming_tables = OriginDirectory(directory_path='/METADATA/LANGUAGE/',
                                  file_list=[
                                      'NMS_LOC1_ENGLISH.EXML',
@@ -31,6 +33,7 @@ farming_tables = OriginDirectory(directory_path='/METADATA/LANGUAGE/',
                                      'NMS_LOC5_ENGLISH.EXML',
                                      'NMS_LOC6_ENGLISH.EXML'
                                  ])
+# TODO: Replace w/config
 language_tables = OriginDirectory(directory_path='/MODELS/PLANETS/BIOMES/COMMON/INTERACTIVEFLORA',
                                   file_list=[
                                       '/FARMALBUMEN/ENTITIES/PLANTINTERACTION.ENTITY.EXML',

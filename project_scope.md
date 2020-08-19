@@ -34,12 +34,11 @@
 # ETL Inputs and Outputs
 ### Game file extract
 #### Inputs:
-* Raw game file
-* Exported MBIN file
-* Converted/unpacked EXML file
-* Game files (.EXML) required for dimensional data model
+* Raw game files (possible to run shell script to run windows program? <-- may want to seek out native library in future)
+* Exported MBIN files (possible to run shell script to run windows program?)
+* Game files (.EXML) required for dimensional data model (Converted/unpacked EXML files)
+* Expected file list and when/if those files were last extracted for transformation
 * .EXML -> JSON conversion spec/map
-* Expected file list and when/if those files were last extracted for transformation (point just above this one)
 #### Outputs:
 * Initially transformed JSON for later work
 * Expected file alias list
