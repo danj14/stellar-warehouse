@@ -1,40 +1,42 @@
 {
   "lnd_d_product": {
-    "keys": [
-      "Id",
-      "Name",
-      "NameLower",
-      "BaseValue",
-      "SubstanceCategory",
-      "ProductCategory",
-      "Rarity",
-      "Legality",
-      "Consumable",
-      "ChargeValue",
-      "StackMultiplier",
-      "DefaultCraftAmount",
-      "CraftAmountStepSize",
-      "CraftAmountMultiplyer",
-      "Recipe_Ingredient::ID",
-      "Recipe_Ingredient:InventoryType",
-      "Recipe_Ingredient::Amount",
-      "SpaceStationMarkup",
-      "LowPriceMod",
-      "HighPriceMod",
-      "BuyBaseMarkup",
-      "BuyMarkupMod",
-      "RecipeCost",
-      "SpecifyChargeOnly",
-      "NormalisedValueOnWorld",
-      "NormalisedValueOffWorld",
-      "TradingClass",
-      "WikiCategory",
-      "IsCraftable",
-      "DeploysInto",
-      "EconomyInfluenceMultiplier",
-      "CookingIngredient",
-      "GoodForSelling"
-    ]
+    "common_tag": "Property",
+    "xml_map_seeker_attributes": "name:value",
+    "Table": {
+      "GcProductData.xml": {
+        "name_index": [
+          "Id",
+          "Name",
+          "NameLower",
+          "BaseValue",
+          "Consumable",
+          "ChargeValue",
+          "SubstanceCategory:GcRealitySubstanceCategory.xml=>SubstanceCategory",
+          "ProductCategory:GcProductCategory.xml=>ProductCategory",
+          "Rarity:GcRarity.xml=>Rarity",
+          "Legality:GcLegality.xml=>Legality",
+          "Consumable",
+          "ChargeValue",
+          "StackMultiplier",
+          "DefaultCraftAmount",
+          "CraftAmountStepSize",
+          "CraftAmountMultiplyer",
+          "Requirements:=>:GcTechnologyRequirement.xml=>ID,InventoryType:GcInventoryType.xml=>InventoryType,Amount",
+          "Cost:GcItemPriceModifiers.xml=>SpaceStationMarkup,LowPriceMod,HighPriceMod,BuyBaseMarkup,BuyMarkupMod",
+          "RecipeCost",
+          "SpecifyChargeOnly",
+          "NormalisedValueOnWorld",
+          "NormalisedValueOffWorld",
+          "TradeCategory:GcTradeCategory.xml=>TradingClass",
+          "WikiCategory",
+          "IsCraftable",
+          "DeploysInto",
+          "EconomyInfluenceMultiplier",
+          "CookingIngredient",
+          "GoodForSelling"
+        ]
+      }
+    }
   },
   "lnd_d_substance": {
     "keys": [
