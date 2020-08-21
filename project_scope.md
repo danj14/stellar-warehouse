@@ -38,7 +38,7 @@
 * Exported MBIN files (possible to run shell script to run windows program?)
 * Game files (.EXML) required for dimensional data model (Converted/unpacked EXML files)
 * Expected file list and when/if those files were last extracted for transformation
-* .EXML -> JSON conversion spec/map
+* .EXML -> JSON conversion spec/map and schema
 #### Outputs:
 * Initially transformed JSON for later work
 * Expected file alias list

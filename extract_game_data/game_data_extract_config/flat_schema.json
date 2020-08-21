@@ -1,10 +1,10 @@
 {
-  "lnd_d_product": {
-    "common_tag": "Property",
-    "xml_map_seeker_attributes": "name:value",
-    "Table": {
-      "GcProductData.xml": {
-        "name_index": [
+  "common_tag": "Property",
+  "xml_map_seeker_attributes": "name:value",
+  "Table:": {
+    "GcProductData.xml": {
+      "table_alias": "lnd_d_product",
+      "name_index": [
           "Id",
           "Name",
           "NameLower",
@@ -35,50 +35,52 @@
           "CookingIngredient",
           "GoodForSelling"
         ]
-      }
+    },
+    "GcRealitySubstanceData.xml": {
+      "table_alias": "lnd_d_substance",
+      "name_index": [
+        "Name",
+        "NameLower",
+        "ID",
+        "BaseValue",
+        "Category:GcRealitySubstanceCategory.xml=>SubstanceCategory",
+        "Rarity:GcRarity.xml=>Rarity",
+        "Legality:GcLegality.xml=>Legality",
+        "ChargeValue",
+        "StackMultiplier",
+        "Cost:GcItemPriceModifiers.xml=>SpaceStationMarkup,LowPriceMod, HighPriceMod, BuyBaseMarkup, BuyMarkupMod",
+        "NormalisedValueOnWorld",
+        "NormalisedValueOffWorld",
+        "tradeCategory:GcTradeCategory.xml=>TradingClass",
+        "EconomyInfluenceMultiplier",
+        "CookingIngredient",
+        "GoodForSelling"
+      ]
     }
   },
-  "lnd_d_substance": {
-    "keys": [
-      "Name",
-      "NameLower",
-      "ID",
-      "SubstanceCategory",
-      "Rarity",
-      "Legality",
-      "ChargeValue",
-      "StackMultiplier",
-      "SpaceStationMarkup",
-      "LowPriceMod",
-      "HighPriceMod",
-      "BuyBaseMarkup",
-      "BuyMarkupMod",
-      "NormalisedValueOnWorld",
-      "NormalisedValueOffWorld",
-      "TradingClass",
-      "EconomyInfluenceMultiplier",
-      "CookingIngredient",
-      "GoodForSelling"
-    ]
+  "TradingClassesData:": {
+    "~name~:GcTradingClassData.xml": {
+      "table_alias": "lnd_d_trade_class",
+      "name_index": [
+        "~name~!!ClassName",
+        "Sells:GcTradeCategory.xml=>TradingClass!!SellsClassName",
+        "Needs:GcTradeCategory.xml=>TradingClass!!NeedsClassName",
+        "MinSellingPriceMultiplier",
+        "MaxSellingPriceMultiplier",
+        "MinBuyingPriceMultiplier",
+        "MaxBuyingPriceMultiplier"
+      ]
+    }
   },
-  "lnd_d_trade_class": {
-    "keys": [
-      "ClassName",
-      "SellsClassName",
-      "NeedsClassName",
-      "MinSellingPriceMultiplier",
-      "MaxSellingPriceMultiplier",
-      "MinBuyingPriceMultiplier",
-      "MaxBuyingPriceMultiplier"
-    ]
-  },
-  "lnd_d_trade_category": {
-    "keys": [
-      "CategoryName",
-      "CategoryLanguageID",
-      "ProductMultiplierChangePer100",
-      "SubstanceMultiplierChangePer100"
-    ]
+  "CategoryData:": {
+    "~name~GcTradingCategoryData.xml":{
+      "table_alias": "lnd_d_trade_category",
+      "name_index": [
+        "Name!!CategoryName",
+        "ProductMultiplierChangePer100",
+        "SubstanceMultiplierChangePer100"
+      ]
+    }
   },
   "lnd_d_farm_plant": {
     "keys": [
