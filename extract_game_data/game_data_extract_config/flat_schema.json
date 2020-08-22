@@ -2,7 +2,7 @@
   "common_tag": "Property",
   "xml_map_seeker_attributes": "name:value",
   "Table:": {
-    "GcProductData.xml": {
+    ":GcProductData.xml": {
       "table_alias": "lnd_d_product",
       "name_index": [
           "Id",
@@ -36,7 +36,7 @@
           "GoodForSelling"
         ]
     },
-    "GcRealitySubstanceData.xml": {
+    ":GcRealitySubstanceData.xml": {
       "table_alias": "lnd_d_substance",
       "name_index": [
         "Name",
@@ -55,6 +55,24 @@
         "EconomyInfluenceMultiplier",
         "CookingIngredient",
         "GoodForSelling"
+      ]
+    },
+    ":GcRefinerRecipe.xml": {
+      "table_alias": "lnd_d_recipe",
+      "name_index": [
+        "Id",
+        "Name",
+        "TimeToMake",
+        "Cooking",
+        "Result:GcRefinerRecipeElement.xml=>Id!!ResultId,Type:GcInventoryType.xml=>InventoryType!!ResultInventoryType,Amount!!ResultAmount",
+        "Ingredients:=>:GcRefinerRecipeElement.xml=>Id!!RecipeIngredientId,Type:GcInventoryType.xml=>InventoryType!!RecipeIngredientIdInventoryType,Amount!!RecipeIngredientAmount"
+      ]
+    },
+    ":TkLocalisationEntry.xml": {
+      "table_alias": "lnd_d_language",
+      "name_index": [
+        "Id",
+
       ]
     }
   },
@@ -82,41 +100,33 @@
       ]
     }
   },
-  "lnd_d_farm_plant": {
-    "keys": [
-      "ScanName",
-      "DisableIfBuildingPart",
-      "DisableIfInBase",
-      "ScanIconType",
-      "ScannableType",
-      "Id",
-      "Rarity",
-      "ActivationCost",
-      "SubstanceId",
-      "RequiredTech",
-      "Name",
-      "ScanType",
-      "STEP0_Time",
-      "STEP1_Time",
-      "STEP2_Time",
-      "CanCollectInMech"
-    ]
+  "Components:": {
+    ":GcScannableComponentData.xml": {
+      "table_alias": "lnd_d_farm_plant",
+      "name_index": [
+        "ScanRange",
+        "ScanName",
+        "DisableIfBuildingPart",
+        "DisableIfInBase",
+        "IconType:GcScannerIconTypes.xml=>ScanIconType",
+        "ScannableType"
+      ]
+    },
+    ":GcSimpleInteractionComponentData.xml": {
+      "table_alias": "lnd_d_farm_plant",
+      "name_index": [
+        "Id",
+        "Rarity:GcRarity.xml=>Rarity",
+        "ActivationCost:GcInteractionActivationCost.xml=>SubstanceId,Cost!!ActivationCost,RequiredTech",
+        "Name",
+        "ScanType",
+        "BaseBuildingTriggerActions:=>:GcInteractionBaseBuildingState.xml=>TriggerAction,Time",
+        "CanCollectInMech"
+      ]
+    }
   },
-  "lnd_d_recipe": {
-    "keys": [
-      "Id",
-      "Name",
-      "TimeToMake",
-      "Cooking",
-      "ResultId",
-      "ResultInventoryType",
-      "ResultAmount",
-      "Recipe_Ingredient::Id",
-      "Recipe_Ingredient::InventoryType",
-      "Recipe_Ingredient::Amount"
-    ]
-  },
-  "lnd_d_language": {
+
+  "": {
     "keys": [
       "Id",
       "Value"
