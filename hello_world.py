@@ -9,15 +9,20 @@ def stage_game_files():
         config_data = configs.read()
     config_json = json.loads(config_data)
     staged_files = stg.StageGameFiles(config_json, file_home, destination_parent_path)
-    ### DEBUG CONFIG ###
-    # having this as "False" sort of breaks things...
-    stage_debug = True
-    ### END CONFIG   ###
-    staged_files.clear_stage(stage_debug) if staged_files.check_for_stage() else staged_files.create_stage()
-    staged_files.bring_to_stage()
+    if staged_files.check_for_stage():
+        staged_files.clear_stage()
+    staged_files.create_stage()
+    stage = staged_files.bring_to_stage()
+    return {"file_config_json": config_json, "stage": stage}
+
+def transform_game_files(file_config, stage):
+    with open('extract_game_data/game_data_extract_config/flat_schema.json', 'r') as configs:
+        config_data = configs.read()
+    schema_config = json.loads(config_data)
 
 
-stage_game_files()
+extract_files = stage_game_files()
+transform_game_files(extract_files["file_config_json"], extract_files["stage"])
 
 
 

@@ -26,11 +26,8 @@ class StageGameFiles:
     def create_stage(self):
         os.makedirs(self.staging_path)
 
-    def clear_stage(self, stage_debug):
-        if stage_debug:
-            print('Directory will be deleted in prod run...')
-        else:
-            rmtree(f'{self.staging_path}')
+    def clear_stage(self):
+        rmtree(f'{self.staging_path}')
 
     def bring_to_stage(self):
         absolute_file_paths = []
@@ -42,4 +39,4 @@ class StageGameFiles:
                                         else file["file_name"]} for file in file_group["file_list"]])
         for file in absolute_file_paths:
             copy(file["path"], f'{self.staging_path}/{file["alias"]}')
-
+        return self.staging_path
