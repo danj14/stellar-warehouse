@@ -72,7 +72,7 @@
       "table_alias": "lnd_d_language",
       "name_index": [
         "Id",
-
+        "English:VariableSizeString.xml=>Value"
       ]
     }
   },
@@ -124,12 +124,5 @@
         "CanCollectInMech"
       ]
     }
-  },
-
-  "": {
-    "keys": [
-      "Id",
-      "Value"
-    ]
   }
 }

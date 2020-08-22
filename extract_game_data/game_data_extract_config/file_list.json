@@ -12,19 +12,55 @@
     "directory_path": "/METADATA/LANGUAGE/",
     "file_list": [
       {"file_name": "NMS_LOC1_ENGLISH.EXML", "content_regex_filters": [
-
+        {"pattern": "RARITY_\\w*\\d$", "context": "planet_rarity_class"}, 
+        {"pattern": "^PLANETCLASS\\d*$", "context": "celestial_body_class"}, 
+        {"pattern": "^AGE\\d{1,2}$", "context": "fauna_age"}, 
+        {"pattern": "^SEX\\d{1,2}$", "context": "fauna_gender"}
       ], "landing_tables":["lnd_d_language"]},
       {"file_name": "NMS_UPDATE3_ENGLISH.EXML", "content_regex_filters": [
-
+        {"pattern": "^[A-Z]{3}_RACE_NAME_L$", "context": "system_life_form"},
+        {"pattern": "^UI_CONFLICT_LEVEL_[A-Z]{3,5}_\\d{1,2}$", "context": "system_conflict_level"},
+        {"pattern": "^UI_ECON_LEVEL_[A-Z]{3,5}_\\d{1,2}$", "context": "system_economy_strength"},
+        {"pattern": "^UI_ECON_CLASS_[A-Z]{3,10}_\\d{1,2}$", "context": "system_economy_class"},
+        {"pattern": "^WEATHER_.*\\d{1,2}$", "context": "planet_weather_class"},
+        {"pattern": "^SCORCHED\\d*$", "context": "planet_environment_scorched"},
+        {"pattern": "^FROZEN\\d*$", "context": "planet_environment_frozen"},
+        {"pattern": "^IRRADIATED\\d*$", "context": "planet_environment_irradiated"},
+        {"pattern": "^TOXIC\\d*$", "context": "planet_environment_toxic"},
+        {"pattern": "^BARREN\\d*$", "context": "planet_environment_barren"},
+        {"pattern": "^DEAD\\d*$", "context": "planet_environment_dead"},
+        {"pattern": "^LUSH\\d*$", "context": "planet_environment_lush"},
+        {"pattern": "^WIRECELLSBIOME\\d*$", "context": "planet_environment_wirecell"},
+        {"pattern": "^CONTOURBIOME\\d*$", "context": "planet_environment_contour"},
+        {"pattern": "^BONESPIREBIOME\\d*$", "context": "planet_environment_bonespire"},
+        {"pattern": "^IRRISHELLSBIOME\\d*$", "context": "planet_environment_irrishell"},
+        {"pattern": "^HYDROGARDENBIOME\\d*$", "context": "planet_environment_hydrogarden"},
+        {"pattern": "^MSTRUCTBIOME\\d*$", "context": "planet_environment_mstruct"},
+        {"pattern": "^BEAMSBIOME\\d*$", "context": "planet_environment_beam"},
+        {"pattern": "^HEXAGONBIOME\\d*$", "context": "planet_environment_hexagon"},
+        {"pattern": "^FRACTCUBEBIOME\\d*$", "context": "planet_environment_fractcube"},
+        {"pattern": "^BUBBLEBIOME\\d*$", "context": "planet_environment_bubble"},
+        {"pattern": "^SHARDSBIOME\\d*$", "context": "planet_environment_shards"},
+        {"pattern": "^REDBIOME\\d*$", "context": "planet_environment_red"},
+        {"pattern": "^GREENBIOME\\d*$", "context": "planet_environment_green"},
+        {"pattern": "^BLUEBIOME\\d*$", "context": "planet_environment_blue"},
+        {"pattern": "^GLITCHBIOME\\d*$", "context": "planet_environment_glitch"}
       ], "landing_tables": ["lnd_d_language"]},
       {"file_name": "NMS_LOC4_ENGLISH.EXML", "content_regex_filters": [
-
+        {"pattern": "^TEMPERAMENT_[A-Z]{1,26}\\d{1,2}$", "context": "fauna_behavior"},
+        {"pattern": "^UI_CREATURE_NOTE_\\d{1,3}$", "context": "fauna_note"}
       ], "landing_tables": ["lnd_d_language"]},
       {"file_name": "NMS_LOC5_ENGLISH.EXML", "content_regex_filters": [
-
+        {"pattern": "SENTINEL_\\w*\\d$", "context": "planet_sentinel_class"},
+        {"pattern": "^UI_CRE_TERRAIN_[A-Z]{3,24}$", "context": "fauna_habitat"},
+        {"pattern": "^FISHDIET\\d{1,2}$", "context": "fauna_diet"},
+        {"pattern": "^PREDFISHDIET\\d{1,2}$", "context": "fauna_diet"},
+        {"pattern": "^HERBIVORE.*", "context": "fauna_diet"},
+        {"pattern": "^CARNIVORE.*", "context": "fauna_diet"},
+        {"pattern": "^OMNIVORE.*", "context": "fauna_diet"}
       ], "landing_tables": ["lnd_d_language"]},
       {"file_name": "NMS_LOC6_ENGLISH.EXML", "content_regex_filters": [
-
+        
       ], "landing_tables": ["lnd_d_language"]}
     ]
   },
