@@ -67,18 +67,18 @@
   "farming_tables": {
     "directory_path": "/MODELS/PLANETS/BIOMES/COMMON/INTERACTIVEFLORA",
     "file_list": [
-      {"file_name": "/FARMALBUMEN/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMBARREN/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMDEADCREATURE/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMGRAVITINO/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMLUSH/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMNIP/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMPOOP/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMRADIOACTIVE/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMSCORCHED/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMSNOW/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMTOXIC/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]},
-      {"file_name": "/FARMVENOMSAC/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "landing_tables": ["lnd_d_farm_plant"]}
+      {"file_name": "/FARMALBUMEN/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMALBUMEN.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMBARREN/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMBARREN.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMDEADCREATURE/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMDEADCREATURE.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMGRAVITINO/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMGRAVITINO.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMLUSH/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMLUSH.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMNIP/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMNIP.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMPOOP/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMPOOP.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMRADIOACTIVE/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMRADIOACTIVE.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMSCORCHED/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMSCORCHED.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMSNOW/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMSNOW.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMTOXIC/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMTOXIC.EXML","landing_tables": ["lnd_d_farm_plant"]},
+      {"file_name": "/FARMVENOMSAC/ENTITIES/PLANTINTERACTION.ENTITY.EXML", "file_name_alias": "FARMVENOMSAC.EXML","landing_tables": ["lnd_d_farm_plant"]}
     ]
   }
 }

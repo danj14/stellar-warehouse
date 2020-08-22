@@ -1,9 +1,33 @@
+import os
+import json
+from extract_game_data import stage_game_files as stg
+
+def stage_game_files():
+    file_home = os.environ['DEV_FILE_ORIGIN']
+    destination_parent_path = os.environ['DEV_FILE_DESTINATION']
+    with open('extract_game_data/game_data_extract_config/file_list.json', 'r') as configs:
+        config_data = configs.read()
+    config_json = json.loads(config_data)
+    staged_files = stg.StageGameFiles(config_json, file_home, destination_parent_path)
+    ### DEBUG CONFIG ###
+    # having this as "False" sort of breaks things...
+    stage_debug = True
+    ### END CONFIG   ###
+    staged_files.clear_stage(stage_debug) if staged_files.check_for_stage() else staged_files.create_stage()
+    staged_files.bring_to_stage()
+
+
+stage_game_files()
+
+
+
+
 """
 Background:
 --ref: https://nmsmodding.fandom.com/wiki/Getting_Started --
-* Files: V:\SteamLibrary\steamapps\common\No Man's Sky\GAMEDATA\PCBANKS
-* Extract using... C:\Users\Dan\Documents\Projects\PSArcTool
-* Extract MBIN for applicable files to EXML...C:\Users\Dan\Documents\Projects\MBINCompiler.exe
+* Files: V:\\\\SteamLibrary\\\\steamapps\\\\common\\\\No Man's Sky\\GAMEDATA\\PCBANKS
+* Extract using... C:\\Users\\Dan\\Documents\\Projects\\PSArcTool
+* Extract MBIN for applicable files to EXML...C:\\Users\\Dan\\Documents\\Projects\\MBINCompiler.exe
 
 Goals:
 1) Optimize value per <x> time period for farming
