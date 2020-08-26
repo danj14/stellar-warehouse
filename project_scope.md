@@ -68,3 +68,12 @@
 * List of recipes matching input ingredient(s)
 * List of recipes matching desired output(s)
 * (add-on) Possible recipe combos meeting or exceeding currency goal
+## Misc. Notes (re-org later):  
+### Schema Config Translation Notes
+* The values included in the config file are organized as a heirarchy of key:value pairs  
+  * The pairs are read as a look-up cursor to find the same pair value in the EXML file.
+  * For example, "dan:bailey=>somevalue" is a cursor looking for SOME TAG WITH VALUE PAIR OF "name=Dan value=Bailey"
+* Heirarchy is defined by arrows; using "dan:bailey=>somevalue" indicates that we want to [value] attribute from the parents name=Dan value=Bailey.  
+* When the values provided do not have a key or a value (have one and not the other but have one); it indicates partial reference. Meaning, ":Bailey=>somevalue" indicates we are looking for value=Bailey as the lone attribute of that particular XML tag. Similarly, "Dan:=>somevalue" indicates we are looking for name=Dan as the lone attribute of that particular XML tag.  
+* "~" is a sort of wildcard/variable placeholder that should be replaced with the parent nodes name attribute (unless only value is given) [!!TODO: VERIFY THIS]  
+* "!!" follows the final node reference and preceeds the alias value "somevalue!!whopper_deal" indicates that "whopper_deal" will be the key in the JSON object rather than "somevalue"
