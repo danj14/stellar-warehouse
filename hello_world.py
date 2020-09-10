@@ -1,6 +1,10 @@
 import os
 import json
 from extract_game_data import stage_game_files as stg
+from transform_game_data import transform_game_files as tfr
+
+# TODO: we are doing a lot of file opening...
+# TODO: create runtime config class?
 
 def stage_game_files():
     file_home = os.environ['DEV_FILE_ORIGIN']
@@ -15,15 +19,24 @@ def stage_game_files():
     stage = staged_files.bring_to_stage()
     return {"file_config_json": config_json, "stage": stage}
 
-def transform_game_files(file_config, stage):
+def transform_game_files():
     with open('extract_game_data/game_data_extract_config/flat_schema.json', 'r') as configs:
         config_data = configs.read()
     schema_config = json.loads(config_data)
+    staged_game_files = stage_game_files()
+    start_d = tfr.TransformGameFiles(staged_game_files["file_config_json"], schema_config, staged_game_files["stage"])
+    start_d.file_spotlight(staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["file_name"])
+    start_d.render_json()
+    return
 
 
-extract_files = stage_game_files()
-transform_game_files(extract_files["file_config_json"], extract_files["stage"])
-
+print('==================== RAW OUTPUTS ====================')
+g_staged_game_files = stage_game_files()
+print('******************** Stage game files ********************')
+print(f'{g_staged_game_files["file_config_json"]}')
+print(f'{g_staged_game_files["stage"]}')
+print('******************** Transform game files ********************')
+print(f'{transform_game_files()}')
 
 
 
