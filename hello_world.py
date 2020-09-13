@@ -24,10 +24,13 @@ def transform_game_files():
         config_data = configs.read()
     schema_config = json.loads(config_data)
     staged_game_files = stage_game_files()
+    # TODO: rename "start_d"
     start_d = tfr.TransformGameFiles(staged_game_files["file_config_json"], schema_config, staged_game_files["stage"])
-    start_d.file_spotlight(staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["file_name"])
-    start_d.render_json()
-    return
+    # TODO: replace with loop/crawler to go through all files
+    start_d.file_spotlight(staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["file_name"],
+                           staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0])
+    temp_debug_json = start_d.render_json()
+    return temp_debug_json
 
 
 print('==================== RAW OUTPUTS ====================')

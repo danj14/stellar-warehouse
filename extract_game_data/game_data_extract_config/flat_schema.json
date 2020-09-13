@@ -1,39 +1,175 @@
 {
   "common_tag": "Property",
-  "xml_map_seeker_attributes": "name:value",
-  "Table:": {
-    ":GcProductData.xml": {
-      "table_alias": "lnd_d_product",
+  "table": {
+    "lnd_d_product": {
+      "block_value": ".//*/..[@value='GcProductData.xml']",
+      "table_schema": [
+        {
+          "field_name": "Id",
+          "cursor": ".*/[@name='Id']",
+          "key": "value"
+        },
+        {
+          "field_name": "Name",
+          "cursor": ".*/[@name='Name']",
+          "key": "value"
+        },
+        {
+          "field_name": "NameLower",
+          "cursor": ".*/[@name='NameLower']",
+          "key": "value"
+        },
+        {
+          "field_name": "BaseValue",
+          "cursor": ".*/[@name='BaseValue']",
+          "key": "value"
+        },
+        {
+          "field_name": "Consumable",
+          "cursor": ".*/[@name='Consumable']",
+          "key": "value"
+        },
+        {
+          "field_name": "ChargeValue",
+          "cursor": ".*/[@name='ChargeValue']",
+          "key": "value"
+        },
+        {
+          "field_name": "StackMultiplier",
+          "cursor": ".*/[@name='StackMultiplier']",
+          "key": "value"
+        },
+        {
+          "field_name": "DefaultCraftAmount",
+          "cursor": ".*/[@name='DefaultCraftAmount']",
+          "key": "value"
+        },
+        {
+          "field_name": "CraftAmountStepSize",
+          "cursor": ".*/[@name='CraftAmountStepSize']",
+          "key": "value"
+        },
+        {
+          "field_name": "RecipeCost",
+          "cursor": ".*/[@name='RecipeCost']",
+          "key": "value"
+        },
+        {
+          "field_name": "SpecificChargeOnly",
+          "cursor": ".*/[@name='SpecificChargeOnly']",
+          "key": "value"
+        },
+        {
+          "field_name": "NormalisedValueOnWorld",
+          "cursor": ".*/[@name='NormalisedValueOnWorld']",
+          "key": "value"
+        },
+        {
+          "field_name": "NormalisedValueOffWorld",
+          "cursor": ".*/[@name='NormalisedValueOffWorld']",
+          "key": "value"
+        },
+        {
+          "field_name": "WikiCategory",
+          "cursor": ".*/[@name='WikiCategory']",
+          "key": "value"
+        },
+        {
+          "field_name": "IsCraftable",
+          "cursor": ".*/[@name='IsCraftable']",
+          "key": "value"
+        },
+        {
+          "field_name": "DeploysInto",
+          "cursor": ".*/[@name='DeploysInto']",
+          "key": "value"
+        },
+        {
+          "field_name": "EconomyInfluenceMultiplier",
+          "cursor": ".*/[@name='EconomyInfluenceMultiplier']",
+          "key": "value"
+        },
+        {
+          "field_name": "CookingIngredient",
+          "cursor": ".*/[@name='CookingIngredient']",
+          "key": "value"
+        },
+        {
+          "field_name": "GoodForSelling",
+          "cursor": ".*/[@name='GoodForSelling']",
+          "key": "value"
+        },
+        {
+          "field_name": "SubstanceCategory",
+          "cursor": ".*/Property/[@name='SubstanceCategory']",
+          "key": "value"
+        },
+        {
+          "field_name": "ProductCategory",
+          "cursor": ".*/Property/[@name='ProductCategory']",
+          "key": "value"
+        },
+        {
+          "field_name": "Rarity",
+          "cursor": ".*/Property/[@name='Rarity']",
+          "key": "value"
+        },
+        {
+          "field_name": "Legality",
+          "cursor": ".*/Property/[@name='Legality']",
+          "key": "value"
+        },
+        {
+          "field_name": "SpaceStationMarkup",
+          "cursor": ".*/Property/[@name='SpaceStationMarkup']",
+          "key": "value"
+        },
+        {
+          "field_name": "LowPriceMod",
+          "cursor": ".*/Property/[@name='LowPriceMod']",
+          "key": "value"
+        },
+        {
+          "field_name": "HighPriceMod",
+          "cursor": ".*/Property/[@name='HighPriceMod']",
+          "key": "value"
+        },
+        {
+          "field_name": "BuyBaseMarkup",
+          "cursor": ".*/Property/[@name='BuyBaseMarkup']",
+          "key": "value"
+        },
+        {
+          "field_name": "BuyMarkupMod",
+          "cursor": ".*/Property/[@name='BuyMarkupMod']",
+          "key": "value"
+        },
+        {
+          "field_name": "TradingClass",
+          "cursor": ".*/Property/[@name='TradingClass']",
+          "key": "value"
+        },
+        {
+          "field_name": "Requirements",
+          "is_group": true,
+          "group_block": ".*/[@name='Requirements']/Property",
+          "ingredient_block": "./[@value='GcTechnologyRequirement.xml']",
+          "ingredients": [
+            {
+              "attribute_name": "ID",
+              "cursor": ".*/[@name='ID']",
+              "key": "value"
+            },
+            {
+              "attribute_name": "Amount",
+              "cursor": ".*/[@name='Amount']",
+              "key": "value"
+            }
+          ]
+        }
+      ],
       "name_index": [
-          "Id",
-          "Name",
-          "NameLower",
-          "BaseValue",
-          "Consumable",
-          "ChargeValue",
-          "SubstanceCategory:GcRealitySubstanceCategory.xml=>SubstanceCategory",
-          "ProductCategory:GcProductCategory.xml=>ProductCategory",
-          "Rarity:GcRarity.xml=>Rarity",
-          "Legality:GcLegality.xml=>Legality",
-          "Consumable",
-          "ChargeValue",
-          "StackMultiplier",
-          "DefaultCraftAmount",
-          "CraftAmountStepSize",
-          "CraftAmountMultiplyer",
-          "Requirements:=>:GcTechnologyRequirement.xml=>ID,InventoryType:GcInventoryType.xml=>InventoryType,Amount",
-          "Cost:GcItemPriceModifiers.xml=>SpaceStationMarkup,LowPriceMod,HighPriceMod,BuyBaseMarkup,BuyMarkupMod",
-          "RecipeCost",
-          "SpecifyChargeOnly",
-          "NormalisedValueOnWorld",
-          "NormalisedValueOffWorld",
-          "TradeCategory:GcTradeCategory.xml=>TradingClass",
-          "WikiCategory",
-          "IsCraftable",
-          "DeploysInto",
-          "EconomyInfluenceMultiplier",
-          "CookingIngredient",
-          "GoodForSelling"
+          "Requirements:=>:GcTechnologyRequirement.xml=>ID,InventoryType:GcInventoryType.xml=>InventoryType,Amount"
         ]
     },
     ":GcRealitySubstanceData.xml": {
