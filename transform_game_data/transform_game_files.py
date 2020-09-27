@@ -14,14 +14,16 @@ class TransformGameFiles:
         self.stage = stage
         self.file_root = None
         self.set_schema = None
+        self.landing_table = None
 
     def file_spotlight(self, file=None, landing_table=None):
         parsed_file = eTree.parse(f'{self.stage}/{file}')
         self.file_root = parsed_file.getroot()
         self.set_schema = self.file_schema["table"][landing_table]
+        self.landing_table = landing_table
 
     def render_json(self):
-        arr_r = []
+        file_items = []
         for top_level in self.file_root.iterfind(f'{self.set_schema["block_value"]}'):
             data_object = {}
             for schema_info in self.set_schema["table_schema"]:
@@ -29,14 +31,14 @@ class TransformGameFiles:
                     group_attributes = []
                     for sub_level in top_level.iterfind(f'{schema_info["group_block"]}'):
                         ingredient_object = {}
-                        #print(sub_level.find(".//*/[@name='ID']").get("value"))
                         for ingredient in sub_level.iterfind(f'{schema_info["ingredient_block"]}'):
-                            print(sub_level.find(".*/[@name='ID']").attrib)
-                            ingredient_object[schema_info[]]
+                            for target_attribute in schema_info["ingredients"]:
+                                ingredient_object[target_attribute["attribute_name"]] = ingredient.find(
+                                    f'{target_attribute["cursor"]}').get(target_attribute["key"])
+                        group_attributes.append(ingredient_object)
                     data_object[schema_info["field_name"]] = group_attributes
                 else:
                     data_object[schema_info["field_name"]] = top_level.find(f'{schema_info["cursor"]}')\
                         .get(schema_info["key"])
-            arr_r.append(data_object)
-            # print(top_level.find(".*/Property/[@name='Requirements']").get("value"))
-        return ''
+            file_items.append(data_object)
+        return {self.landing_table: file_items}

@@ -167,10 +167,17 @@
             }
           ]
         }
-      ],
-      "name_index": [
-          "Requirements:=>:GcTechnologyRequirement.xml=>ID,InventoryType:GcInventoryType.xml=>InventoryType,Amount"
-        ]
+      ]
+    },
+    "lnd_d_substance": {
+      "block_value": ".//*/..[@value='GcRealitySubstanceData.xml']",
+      "table_schema": [
+        {
+          "field_name": "ID",
+          "cursor": ".*/[@name='ID']",
+          "key": "value"
+        }
+      ]
     },
     ":GcRealitySubstanceData.xml": {
       "table_alias": "lnd_d_substance",

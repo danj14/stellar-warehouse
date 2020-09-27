@@ -13,9 +13,9 @@ def stage_game_files():
         config_data = configs.read()
     config_json = json.loads(config_data)
     staged_files = stg.StageGameFiles(config_json, file_home, destination_parent_path)
-    if staged_files.check_for_stage():
-        staged_files.clear_stage()
-    staged_files.create_stage()
+    if staged_files.check_for_stage(staged_files.destination_parent_path, staged_files.current_extraction_run):
+        staged_files.clear_stage(staged_files.staging_path)
+    staged_files.create_stage(staged_files.staging_path)
     stage = staged_files.bring_to_stage()
     return {"file_config_json": config_json, "stage": stage}
 
@@ -30,6 +30,11 @@ def transform_game_files():
     start_d.file_spotlight(staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["file_name"],
                            staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0])
     temp_debug_json = start_d.render_json()
+
+
+    land_file = open('N:/dummy.json', 'w')
+    json.dump(temp_debug_json, land_file, indent=4)
+    land_file.close()
     return temp_debug_json
 
 

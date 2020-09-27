@@ -18,16 +18,24 @@ class StageGameFiles:
         self.current_extraction_run = f'{date.today().strftime("%Y.%m.%d")}-NMS_Source'
         self.staging_path = f'{self.destination_parent_path}/{self.current_extraction_run}'
 
-    def check_for_stage(self):
-        past_extractions = os.listdir(self.destination_parent_path)
-        new_extraction = self.current_extraction_run
-        return new_extraction in past_extractions
+    @staticmethod
+    def check_for_stage(directory_to_check='', directory_to_make=''):
+        existing_directories = os.listdir(directory_to_check)
+        new_directory = directory_to_make
+        # past_extractions = os.listdir(self.destination_parent_path)
+        # new_extraction = self.current_extraction_run
+        return new_directory in existing_directories
 
-    def create_stage(self):
-        os.makedirs(self.staging_path)
+    @staticmethod
+    def create_stage(stage=''):
+        os.makedirs(stage)
 
-    def clear_stage(self):
-        rmtree(f'{self.staging_path}')
+        # os.makedirs(self.staging_path)
+
+    @staticmethod
+    def clear_stage(stage=''):
+        rmtree(stage)
+        # rmtree(f'{self.staging_path}')
 
     def bring_to_stage(self):
         absolute_file_paths = []
