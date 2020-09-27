@@ -22,20 +22,15 @@ class StageGameFiles:
     def check_for_stage(directory_to_check='', directory_to_make=''):
         existing_directories = os.listdir(directory_to_check)
         new_directory = directory_to_make
-        # past_extractions = os.listdir(self.destination_parent_path)
-        # new_extraction = self.current_extraction_run
         return new_directory in existing_directories
 
     @staticmethod
     def create_stage(stage=''):
         os.makedirs(stage)
 
-        # os.makedirs(self.staging_path)
-
     @staticmethod
     def clear_stage(stage=''):
         rmtree(stage)
-        # rmtree(f'{self.staging_path}')
 
     def bring_to_stage(self):
         absolute_file_paths = []

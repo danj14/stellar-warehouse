@@ -5,6 +5,7 @@ from transform_game_data import transform_game_files as tfr
 
 # TODO: we are doing a lot of file opening...
 # TODO: create runtime config class?
+# TODO: Memory leak somewhere in looking through directories; leaving the path open and causing a permission error
 
 def stage_game_files():
     file_home = os.environ['DEV_FILE_ORIGIN']
@@ -30,12 +31,17 @@ def transform_game_files():
     start_d.file_spotlight(staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["file_name"],
                            staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0])
     temp_debug_json = start_d.render_json()
-
-
-    land_file = open('N:/dummy.json', 'w')
+    destination_parent_path = os.environ['DEV_FILE_DESTINATION']
+    stage = stg.StageGameFiles(destination_parent_path=destination_parent_path)
+    if stage.check_for_stage(stage.staging_path, 'JSON_STAGE'):
+        stage.clear_stage(f'{stage.staging_path}/JSON_STAGE')
+    stage.create_stage(f'{stage.staging_path}/JSON_STAGE')
+    land_file = open(f'{stage.staging_path}/JSON_STAGE/'
+                     f'{staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0]}'
+                     f'.json', 'w')
     json.dump(temp_debug_json, land_file, indent=4)
     land_file.close()
-    return temp_debug_json
+    return ''
 
 
 print('==================== RAW OUTPUTS ====================')
