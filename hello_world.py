@@ -43,6 +43,9 @@ def transform_game_files():
     land_file.close()
     return ''
 
+def load_game_files():
+    pass
+
 
 print('==================== RAW OUTPUTS ====================')
 g_staged_game_files = stage_game_files()
