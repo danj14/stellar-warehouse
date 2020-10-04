@@ -1,5 +1,3 @@
 {
-  "product": {
-    "json_alias": "lnd_d_product"
-  }
+  "product": "data_load_queries/landing/load_product.sql"
 }

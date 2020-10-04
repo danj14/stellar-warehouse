@@ -37,6 +37,7 @@ class TransformGameFiles:
                                     f'{target_attribute["cursor"]}').get(target_attribute["key"])
                         group_attributes.append(ingredient_object)
                     data_object[schema_info["field_name"]] = group_attributes
+                    data_object[schema_info["group_key"]] = "True" if len(group_attributes) > 0 else "False"
                 else:
                     data_object[schema_info["field_name"]] = top_level.find(f'{schema_info["cursor"]}')\
                         .get(schema_info["key"])

@@ -152,6 +152,7 @@
         {
           "field_name": "Requirements",
           "is_group": true,
+          "group_key": "HasRequirements",
           "group_block": ".*/[@name='Requirements']/Property",
           "ingredient_block": "./[@value='GcTechnologyRequirement.xml']",
           "ingredients": [

@@ -1,7 +1,8 @@
 import os
 import json
 from extract_game_data import stage_game_files as stg
-from transform_game_data import transform_game_files as tfr
+from transform_game_data import transform_game_files as transformer
+from transform_game_data import load_game_files as loader
 
 # TODO: we are doing a lot of file opening...
 # TODO: create runtime config class?
@@ -26,7 +27,7 @@ def transform_game_files():
     schema_config = json.loads(config_data)
     staged_game_files = stage_game_files()
     # TODO: rename "start_d"
-    start_d = tfr.TransformGameFiles(staged_game_files["file_config_json"], schema_config, staged_game_files["stage"])
+    start_d = transformer.TransformGameFiles(staged_game_files["file_config_json"], schema_config, staged_game_files["stage"])
     # TODO: replace with loop/crawler to go through all files
     start_d.file_spotlight(staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["file_name"],
                            staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0])
@@ -36,15 +37,25 @@ def transform_game_files():
     if stage.check_for_stage(stage.staging_path, 'JSON_STAGE'):
         stage.clear_stage(f'{stage.staging_path}/JSON_STAGE')
     stage.create_stage(f'{stage.staging_path}/JSON_STAGE')
-    land_file = open(f'{stage.staging_path}/JSON_STAGE/'
-                     f'{staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0]}'
-                     f'.json', 'w')
+    file_destination = f'{stage.staging_path}/JSON_STAGE/' \
+                       f'{staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0]}' \
+                       f'.json'
+    land_file = open(file_destination, 'w')
     json.dump(temp_debug_json, land_file, indent=4)
     land_file.close()
-    return ''
+    return temp_debug_json
 
-def load_game_files():
-    pass
+def load_game_files(temp_debug_json):
+    query_config_file = open('transform_game_data/landing_tables_load_config.json')
+    query_config = query_config_file.read()
+    query_config_file.close()
+    query_config = json.loads(query_config)
+    query_file = open(query_config['product'], 'r')
+    query = query_file.read()
+    query_file.close()
+    data_loader = loader.GameFileLoader()
+    for record in temp_debug_json['lnd_d_product']:
+        data_loader.execute_load(data=record, query=query)
 
 
 print('==================== RAW OUTPUTS ====================')
@@ -53,7 +64,7 @@ print('******************** Stage game files ********************')
 print(f'{g_staged_game_files["file_config_json"]}')
 print(f'{g_staged_game_files["stage"]}')
 print('******************** Transform game files ********************')
-print(f'{transform_game_files()}')
+load_game_files(transform_game_files())
 
 
 
