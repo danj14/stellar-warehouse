@@ -8,18 +8,79 @@ from transform_game_data import load_game_files as loader
 # TODO: create runtime config class?
 # TODO: Memory leak somewhere in looking through directories; leaving the path open and causing a permission error
 
+
+"""
+
+Rough idea of project structure for packages...
+
+custom packages <-- thinking about publishing for others figure out how to place with other packages?:
+
+    pgpy_lite/
+        __init__.py
+        cast_params.py
+        transpose_query.py
+        
+    nms_xml/
+        __init__.py
+        # modules for transforming nsm xml data to json representation
+
+pipelines structure
+
+__main__/
+    __init__.py
+    prepare_files.py
+    extract.py
+    transform.py
+    load.py
+
+config/
+    __init__.py
+    queries/
+        __init__.py
+        admin/
+            create_product_landing.sql
+            create_product_ingredient_landing.sql
+        landing/
+            __init__.py
+            load_product.sql
+            load_product_ingredient.sql
+    file_list.json
+    extract_schema.json
+    
+
+landing/
+    __init__.py
+    extract.py
+    transform.py
+    load.py
+
+staging/
+
+REFACTOR ORDER
+    [1] 
+
+
+"""
+
 def stage_game_files():
-    file_home = os.environ['DEV_FILE_ORIGIN']
-    destination_parent_path = os.environ['DEV_FILE_DESTINATION']
-    with open('extract_game_data/game_data_extract_config/file_list.json', 'r') as configs:
-        config_data = configs.read()
-    config_json = json.loads(config_data)
-    staged_files = stg.StageGameFiles(config_json, file_home, destination_parent_path)
+    origin = os.environ['DEV_FILE_ORIGIN']
+    destination = os.environ['DEV_FILE_DESTINATION']
+    file_list_config = open('extract_game_data/game_data_extract_config/file_list.json', 'r')
+    file_list = file_list_config.read()
+    file_list_config.close()
+    file_list = json.loads(file_list)
+
+    # TODO: Refactor stage game class to be  file handler
+
+
+
+    staged_files = stg.StageGameFiles(file_list, origin, destination)
+
     if staged_files.check_for_stage(staged_files.destination_parent_path, staged_files.current_extraction_run):
         staged_files.clear_stage(staged_files.staging_path)
     staged_files.create_stage(staged_files.staging_path)
     stage = staged_files.bring_to_stage()
-    return {"file_config_json": config_json, "stage": stage}
+    return {"file_config_json": file_list, "stage": stage}
 
 def transform_game_files():
     with open('extract_game_data/game_data_extract_config/flat_schema.json', 'r') as configs:
@@ -46,6 +107,7 @@ def transform_game_files():
     return temp_debug_json
 
 def load_game_files(temp_debug_json):
+    # switch to loading a file instead of in-memory
     query_config_file = open('transform_game_data/landing_tables_load_config.json')
     query_config = query_config_file.read()
     query_config_file.close()
