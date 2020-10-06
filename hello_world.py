@@ -24,15 +24,15 @@ custom packages <-- thinking about publishing for others figure out how to place
         __init__.py
         # modules for transforming nsm xml data to json representation
 
-pipelines structure
+pipelines structure; I think we stick w/class based for any core activities that require persistence
 
-__main__/
-    __init__.py
-    prepare_files.py
-    extract.py
-    transform.py
-    load.py
+/
+    [1] prepare_files.py
+    [2] extract.py
+    [3] transform.py
+    [4] load.py
 
+not all of these need to be packages
 config/
     __init__.py
     queries/
@@ -40,6 +40,8 @@ config/
         admin/
             create_product_landing.sql
             create_product_ingredient_landing.sql
+            # TODO: drop_product_landing.sql
+            # TODO: drop_product_ingredient_landing.sql
         landing/
             __init__.py
             load_product.sql
@@ -56,8 +58,19 @@ landing/
 
 staging/
 
+MILESTONES
+    [1] complete data loading to landing tables
+    [2] complete data loading to staging tables
+    [3] complete data loading to presentation tables
+    [4] decide which charts/features to demonstrate
+    [5] publish initial site to share stuff from #4
+
 REFACTOR ORDER
-    [1] 
+    [1] create "prepare_files.py" under the main runtime directory (research what this might be?)
+    [2] create whichever files will extract data from the exml and translate it to json and write to "disk"
+    [3] create whichever files will transform and load the JSON data previously written to "disk"
+    [4] create whichever files will extract landing data and transform and load to staging tables
+    [5] create whichever files will load staging table data, do indexes and such to presentation tables
 
 
 """
