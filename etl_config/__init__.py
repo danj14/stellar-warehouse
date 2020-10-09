@@ -8,15 +8,26 @@ def open_file_to_json(file):
         file_data = f.read()
     return json.loads(file_data)
 
+# module path
 f_path = os.path.dirname(os.path.realpath(__file__)).replace('\\','/')
 
+# file loading parameters
 mapping_schema = open_file_to_json(f'{f_path}/extract_mapping_schema.json')
 file_list = open_file_to_json(f'{f_path}/file_list.json')
 file_origin = os.environ["DEV_FILE_ORIGIN"]
 file_destination = os.environ["DEV_FILE_DESTINATION"]
+
+# job run parameters
 job_label = f'{date.today().strftime("%Y.%m.%d")}-NMS_Source'
 job_destination = f'{file_destination}/{job_label}'
 job_started = job_label in os.listdir(file_destination)
+
+
+# extraction destination/landing
+db_load_source = f'{job_destination}/LANDING_JSON'
+transform_started = False
+
+# logging and other end tasks
 job_end = f'===END==={job_label}.json'
 # TODO: refactor to check for "finish" file once that is implemented
 job_finished = job_started and job_end in os.listdir(file_destination)

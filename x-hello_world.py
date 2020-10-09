@@ -66,7 +66,7 @@ MILESTONES
     [5] publish initial site to share stuff from #4
 
 REFACTOR ORDER
-    [1] create "prepare_files.py" under the main runtime directory (research what this might be?)
+    **DONE** [1] create "prepare_files.py" under the main runtime directory (research what this might be?)
     [2] create whichever files will extract data from the exml and translate it to json and write to "disk"
     [3] create whichever files will transform and load the JSON data previously written to "disk"
     [4] create whichever files will extract landing data and transform and load to staging tables
@@ -100,14 +100,19 @@ def transform_game_files():
         config_data = configs.read()
     schema_config = json.loads(config_data)
     staged_game_files = stage_game_files()
+
+
     # TODO: rename "start_d"
     start_d = transformer.TransformGameFiles(staged_game_files["file_config_json"], schema_config, staged_game_files["stage"])
     # TODO: replace with loop/crawler to go through all files
+
+
     start_d.file_spotlight(staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["file_name"],
                            staged_game_files["file_config_json"]["reality_tables"]["file_list"][0]["landing_tables"][0])
     temp_debug_json = start_d.render_json()
     destination_parent_path = os.environ['DEV_FILE_DESTINATION']
     stage = stg.StageGameFiles(destination_parent_path=destination_parent_path)
+
     if stage.check_for_stage(stage.staging_path, 'JSON_STAGE'):
         stage.clear_stage(f'{stage.staging_path}/JSON_STAGE')
     stage.create_stage(f'{stage.staging_path}/JSON_STAGE')
