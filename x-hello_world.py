@@ -33,7 +33,7 @@ pipelines structure; I think we stick w/class based for any core activities that
     [4] load.py
 
 not all of these need to be packages
-config/
+etl_config/
     __init__.py
     queries/
         __init__.py

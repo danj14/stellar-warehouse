@@ -3,159 +3,159 @@
   "table": {
     "lnd_d_product": {
       "block_value": ".//*/..[@value='GcProductData.xml']",
-      "table_schema": [
+      "mapping_schema": [
         {
-          "field_name": "Id",
+          "attribute_name": "Id",
           "cursor": ".*/[@name='Id']",
           "key": "value"
         },
         {
-          "field_name": "Name",
+          "attribute_name": "Name",
           "cursor": ".*/[@name='Name']",
           "key": "value"
         },
         {
-          "field_name": "NameLower",
+          "attribute_name": "NameLower",
           "cursor": ".*/[@name='NameLower']",
           "key": "value"
         },
         {
-          "field_name": "BaseValue",
+          "attribute_name": "BaseValue",
           "cursor": ".*/[@name='BaseValue']",
           "key": "value"
         },
         {
-          "field_name": "Consumable",
+          "attribute_name": "Consumable",
           "cursor": ".*/[@name='Consumable']",
           "key": "value"
         },
         {
-          "field_name": "ChargeValue",
+          "attribute_name": "ChargeValue",
           "cursor": ".*/[@name='ChargeValue']",
           "key": "value"
         },
         {
-          "field_name": "StackMultiplier",
+          "attribute_name": "StackMultiplier",
           "cursor": ".*/[@name='StackMultiplier']",
           "key": "value"
         },
         {
-          "field_name": "DefaultCraftAmount",
+          "attribute_name": "DefaultCraftAmount",
           "cursor": ".*/[@name='DefaultCraftAmount']",
           "key": "value"
         },
         {
-          "field_name": "CraftAmountStepSize",
+          "attribute_name": "CraftAmountStepSize",
           "cursor": ".*/[@name='CraftAmountStepSize']",
           "key": "value"
         },
         {
-          "field_name": "RecipeCost",
+          "attribute_name": "RecipeCost",
           "cursor": ".*/[@name='RecipeCost']",
           "key": "value"
         },
         {
-          "field_name": "SpecificChargeOnly",
+          "attribute_name": "SpecificChargeOnly",
           "cursor": ".*/[@name='SpecificChargeOnly']",
           "key": "value"
         },
         {
-          "field_name": "NormalisedValueOnWorld",
+          "attribute_name": "NormalisedValueOnWorld",
           "cursor": ".*/[@name='NormalisedValueOnWorld']",
           "key": "value"
         },
         {
-          "field_name": "NormalisedValueOffWorld",
+          "attribute_name": "NormalisedValueOffWorld",
           "cursor": ".*/[@name='NormalisedValueOffWorld']",
           "key": "value"
         },
         {
-          "field_name": "WikiCategory",
+          "attribute_name": "WikiCategory",
           "cursor": ".*/[@name='WikiCategory']",
           "key": "value"
         },
         {
-          "field_name": "IsCraftable",
+          "attribute_name": "IsCraftable",
           "cursor": ".*/[@name='IsCraftable']",
           "key": "value"
         },
         {
-          "field_name": "DeploysInto",
+          "attribute_name": "DeploysInto",
           "cursor": ".*/[@name='DeploysInto']",
           "key": "value"
         },
         {
-          "field_name": "EconomyInfluenceMultiplier",
+          "attribute_name": "EconomyInfluenceMultiplier",
           "cursor": ".*/[@name='EconomyInfluenceMultiplier']",
           "key": "value"
         },
         {
-          "field_name": "CookingIngredient",
+          "attribute_name": "CookingIngredient",
           "cursor": ".*/[@name='CookingIngredient']",
           "key": "value"
         },
         {
-          "field_name": "GoodForSelling",
+          "attribute_name": "GoodForSelling",
           "cursor": ".*/[@name='GoodForSelling']",
           "key": "value"
         },
         {
-          "field_name": "SubstanceCategory",
+          "attribute_name": "SubstanceCategory",
           "cursor": ".*/Property/[@name='SubstanceCategory']",
           "key": "value"
         },
         {
-          "field_name": "ProductCategory",
+          "attribute_name": "ProductCategory",
           "cursor": ".*/Property/[@name='ProductCategory']",
           "key": "value"
         },
         {
-          "field_name": "Rarity",
+          "attribute_name": "Rarity",
           "cursor": ".*/Property/[@name='Rarity']",
           "key": "value"
         },
         {
-          "field_name": "Legality",
+          "attribute_name": "Legality",
           "cursor": ".*/Property/[@name='Legality']",
           "key": "value"
         },
         {
-          "field_name": "SpaceStationMarkup",
+          "attribute_name": "SpaceStationMarkup",
           "cursor": ".*/Property/[@name='SpaceStationMarkup']",
           "key": "value"
         },
         {
-          "field_name": "LowPriceMod",
+          "attribute_name": "LowPriceMod",
           "cursor": ".*/Property/[@name='LowPriceMod']",
           "key": "value"
         },
         {
-          "field_name": "HighPriceMod",
+          "attribute_name": "HighPriceMod",
           "cursor": ".*/Property/[@name='HighPriceMod']",
           "key": "value"
         },
         {
-          "field_name": "BuyBaseMarkup",
+          "attribute_name": "BuyBaseMarkup",
           "cursor": ".*/Property/[@name='BuyBaseMarkup']",
           "key": "value"
         },
         {
-          "field_name": "BuyMarkupMod",
+          "attribute_name": "BuyMarkupMod",
           "cursor": ".*/Property/[@name='BuyMarkupMod']",
           "key": "value"
         },
         {
-          "field_name": "TradingClass",
+          "attribute_name": "TradingClass",
           "cursor": ".*/Property/[@name='TradingClass']",
           "key": "value"
         },
         {
-          "field_name": "Requirements",
+          "attribute_name": "Requirements",
           "is_group": true,
           "group_key": "HasRequirements",
           "group_block": ".*/[@name='Requirements']/Property",
-          "ingredient_block": "./[@value='GcTechnologyRequirement.xml']",
-          "ingredients": [
+          "group_list_block": "./[@value='GcTechnologyRequirement.xml']",
+          "group_list": [
             {
               "attribute_name": "ID",
               "cursor": ".*/[@name='ID']",

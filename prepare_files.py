@@ -3,8 +3,8 @@ from shutil import copy, rmtree
 import os
 import json
 # debugging only
-import extract
-
+# import extract
+# TODO: prepare_files() ends up being a initiation script
 def prepare_files():
     # TODO: refactor to check for "finish" file once that is implemented
     if not conf.job_started:
@@ -21,4 +21,4 @@ def prepare_files():
        os.mkdir(conf.db_load_source)
        conf.transform_started = True
 
-# prepare_files()
+prepare_files()

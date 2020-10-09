@@ -8,6 +8,8 @@ def open_file_to_json(file):
         file_data = f.read()
     return json.loads(file_data)
 
+# maybe we can use YAML or something instead? treat it as true config
+
 # module path
 f_path = os.path.dirname(os.path.realpath(__file__)).replace('\\','/')
 
