@@ -29,8 +29,8 @@ pipelines structure; I think we stick w/class based for any core activities that
 /
     [1] prepare_files.py
     [2] extract.py
-    [3] transform.py
-    [4] load.py
+    [3] load.py
+    [4] transform.py
 
 not all of these need to be packages
 etl_config/
@@ -124,18 +124,8 @@ def transform_game_files():
     land_file.close()
     return temp_debug_json
 
-def load_game_files(temp_debug_json):
-    # switch to loading a file instead of in-memory
-    query_config_file = open('transform_game_data/landing_tables_load_config.json')
-    query_config = query_config_file.read()
-    query_config_file.close()
-    query_config = json.loads(query_config)
-    query_file = open(query_config['product'], 'r')
-    query = query_file.read()
-    query_file.close()
-    data_loader = loader.GameFileLoader()
-    for record in temp_debug_json['lnd_d_product']:
-        data_loader.execute_load(data=record, query=query)
+
+
 
 
 print('==================== RAW OUTPUTS ====================')
