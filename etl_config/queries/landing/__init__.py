@@ -6,3 +6,4 @@ def load_sql(sql_file):
     return file_buffer
 
 lnd_d_product = f'{os.path.dirname(__file__)}/load_product.sql'.replace('\\','/')
+lnd_d_substance = f'{os.path.dirname(__file__)}/load_substance.sql'.replace('\\','/')

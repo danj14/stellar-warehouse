@@ -172,33 +172,106 @@
     },
     "lnd_d_substance": {
       "block_value": ".//*/..[@value='GcRealitySubstanceData.xml']",
-      "table_schema": [
+      "mapping_schema": [
         {
-          "field_name": "ID",
+          "attribute_name": "ID",
           "cursor": ".*/[@name='ID']",
           "key": "value"
+        },
+        {
+          "attribute_name": "Name",
+          "cursor": ".*/[@name='Name']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "NameLower",
+          "cursor": ".*/[@name='NameLower']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "BaseValue",
+          "cursor": ".*/[@name='BaseValue']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "SubstanceCategory",
+          "cursor": ".*/Property/[@name='SubstanceCategory']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "Rarity",
+          "cursor": ".*/Property/[@name='Rarity']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "Legality",
+          "cursor": ".*/Property/[@name='Legality']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "ChargeValue",
+          "cursor": ".*/[@name='ChargeValue']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "StackMultiplier",
+          "cursor": ".*/[@name='StackMultiplier']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "SpaceStationMarkup",
+          "cursor": ".*/Property/[@name='SpaceStationMarkup']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "LowPriceMod",
+          "cursor": ".*/Property/[@name='LowPriceMod']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "HighPriceMod",
+          "cursor": ".*/Property/[@name='HighPriceMod']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "BuyBaseMarkup",
+          "cursor": ".*/Property/[@name='BuyBaseMarkup']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "BuyMarkupMod",
+          "cursor": ".*/Property/[@name='BuyMarkupMod']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "NormalisedValueOnWorld",
+          "cursor": ".*/[@name='NormalisedValueOnWorld']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "NormalisedValueOffWorld",
+          "cursor": ".*/[@name='NormalisedValueOffWorld']",
+          "key": "value"
+        },{
+          "attribute_name": "TradingClass",
+          "cursor": ".*/Property/[@name='TradingClass']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "EconomyInfluenceMultiplier",
+          "cursor": ".*/[@name='EconomyInfluenceMultiplier']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "CookingIngredient",
+          "cursor": ".*/[@name='CookingIngredient']",
+          "key": "value"
+        },
+        {
+          "attribute_name": "GoodForSelling",
+          "cursor": ".*/[@name='GoodForSelling']",
+          "key": "value"
         }
-      ]
-    },
-    ":GcRealitySubstanceData.xml": {
-      "table_alias": "lnd_d_substance",
-      "name_index": [
-        "Name",
-        "NameLower",
-        "ID",
-        "BaseValue",
-        "Category:GcRealitySubstanceCategory.xml=>SubstanceCategory",
-        "Rarity:GcRarity.xml=>Rarity",
-        "Legality:GcLegality.xml=>Legality",
-        "ChargeValue",
-        "StackMultiplier",
-        "Cost:GcItemPriceModifiers.xml=>SpaceStationMarkup,LowPriceMod, HighPriceMod, BuyBaseMarkup, BuyMarkupMod",
-        "NormalisedValueOnWorld",
-        "NormalisedValueOffWorld",
-        "tradeCategory:GcTradeCategory.xml=>TradingClass",
-        "EconomyInfluenceMultiplier",
-        "CookingIngredient",
-        "GoodForSelling"
       ]
     },
     ":GcRefinerRecipe.xml": {

@@ -1,5 +1,5 @@
 create table landing_product_ingredients (
-	ProductId varchar (32) not null,
-	IngredientId varchar (32) not null,
-	IngredientAmount int not null
+	product_id varchar (32) not null,
+	ingredient_id varchar (32) not null,
+	ingredient_amount int not null
 );
