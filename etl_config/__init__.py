@@ -39,9 +39,11 @@ job_files = os.listdir(job_destination) if job_started else []
 
 # extraction destination/landing
 db_load_source = f'{job_destination}/LANDING_JSON'
+db_copy_source = f'{job_destination}/LANDING_CSV'
 db_load_queue = os.listdir(db_load_source) if job_started else []
 db_load_source_check = lambda f: f in db_load_queue
 transform_started = 'LANDING_JSON' in job_files
+copy_loading_started = 'LANDING_CSV' in job_files
 
 # logging and other end tasks
 job_end = f'===END==={job_label}.json'

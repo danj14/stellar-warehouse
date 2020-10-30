@@ -4,8 +4,10 @@ import json
 
 def extract_files():
     conf.prepare_configuration(__file__)
-    configured_range = (0, 1, 2)
-    configured_landing_table = ('lnd_d_product', 'lnd_d_product_ingredient', 'lnd_d_substance')
+    # Configuration
+    configured_range = (0, 1)
+    configured_landing_table = ('lnd_d_product', 'lnd_d_substance')
+    # End Configuration
     for configured_file in configured_range:
         xml_file = conf.file_list["reality_tables"]["file_list"][configured_file]["file_name"]
         file_as_json = nms.xml_to_json(xml_file=f'{conf.job_destination}/{xml_file}',

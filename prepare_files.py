@@ -5,12 +5,16 @@ import json
 
 def prepare_files():
     # TODO: refactor to check for "finish" file once that is implemented
+    # conf.prepare_configuration(__file__)
     if not conf.job_started:
         os.mkdir(conf.job_destination)
         conf.job_started = True
     if not conf.transform_started:
        os.mkdir(conf.db_load_source)
        conf.transform_started = True
+    if not conf.copy_loading_started:
+        os.mkdir(conf.db_copy_source)
+        conf.copy_loading_started = True
     for game_data in conf.file_list:
         data_table = conf.file_list[game_data]
         for data_file in data_table["file_list"]:

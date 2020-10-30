@@ -1,16 +1,9 @@
-    product_id varchar (32) not null,
-	ingredient_id varchar (32) not null,
-	ingredient_amount int not null
-
-
-insert into landing_product (
+insert into landing_product_ingredient (
 	product_id,
 	ingredient_id,
 	ingredient_amount
 ) values (
-	%%Requirements
-	    {{parent_Id as str}},
-	    {{ingredient_ID as str}},
-	    {{ingredient_Amount as int%}}
-	%%
+    {{parent_id as str}},
+    {{ID as str}},
+    {{Amount as int}}
 );

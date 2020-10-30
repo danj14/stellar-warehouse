@@ -37,9 +37,9 @@ def cast_parameters(drop_missing, record):
             record[attribute] = record_value.lower()
 
 def generate_query(query, record):
-    # TODO: a separate loop or some way to determine returning multiple queries to execute (for array/objects)
     for k, v in record.items():
         param_pattern = '{{' + k + ' .*}}'
         query = re.sub(param_pattern, str(v), query, count=0)
-    print(type(query))
+    print(query)
+    exit(-1)
     # return query
