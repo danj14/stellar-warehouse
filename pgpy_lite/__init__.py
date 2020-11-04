@@ -32,14 +32,22 @@ def cast_parameters(drop_missing, record):
         elif cast_type == 'real':
             decimal.getcontext().prec = 6
             record[attribute] = decimal.Decimal(record_value) + decimal.Decimal(0)
-        # bool -> return true/false (lower case)?
+        # bool -> return true/false (lower case)
         elif cast_type == 'bool':
             record[attribute] = record_value.lower()
 
-def generate_query(query, record):
-    for k, v in record.items():
-        param_pattern = '{{' + k + ' .*}}'
-        query = re.sub(param_pattern, str(v), query, count=0)
+def generate_query(query, record, query_type):
+    permitted_operations = ('insert', 'copy')
+    if query_type in permitted_operations:
+        for k, v in record.items():
+            param_pattern = '{{' + k + ' .*}}'
+            query = re.sub(param_pattern, str(v), query, count=0)
+    else:
+        print('ERROR: Invalid query operation')
+        # TODO: config file for exit code meta-data?
+        # binary codes? "query_op" -> [NOPE] '1110001 1110101 1100101 1110010 1111001 1011111 1101111 1110000'
+        # stupid fun idea: convert string to hex and split to 6 char sets to create a color graph of error codes/images
+        exit(-1)
     print(query)
     exit(-1)
     # return query

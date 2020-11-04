@@ -29,6 +29,7 @@ mapping_schema = open_file_to_json(f'{f_path}/extract_mapping_schema.json')
 file_list = open_file_to_json(f'{f_path}/file_list.json')
 file_origin = os.environ["DEV_FILE_ORIGIN"]
 file_destination = os.environ["DEV_FILE_DESTINATION"]
+# localization_destination = os.environ
 
 # job run parameters
 job_label = f'{date.today().strftime("%Y.%m.%d")}-NMS_Source'
