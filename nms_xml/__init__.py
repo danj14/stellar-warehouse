@@ -5,6 +5,7 @@ def xml_root(xml_file):
     parsed_file = eTree.parse(xml_file)
     return parsed_file.getroot()
 
+# TODO: break out for loops into method calls to improve readability (maybe measure execution time before/after to record performance impact)
 
 def xml_to_json(xml_file, json_mapping_schema):
     xml_items_as_json = []

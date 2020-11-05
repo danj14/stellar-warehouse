@@ -2,6 +2,9 @@ import etl_config as conf
 import nms_xml as nms
 import json
 
+# TODO:
+#  this approach feels clumsy to me
+
 def extract_files():
     conf.prepare_configuration(__file__)
     # Configuration

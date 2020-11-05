@@ -6,6 +6,9 @@ import pgpy_lite as pg
 import threading
 import datetime
 
+
+# TODO: File needs to be broken up BIG TIME
+
 def load_data(query, record, drop_missing, query_type):
     pg.cast_parameters(drop_missing=drop_missing, record=record)
     sql = pg.generate_query(query=query, record=record, query_type=query_type)
